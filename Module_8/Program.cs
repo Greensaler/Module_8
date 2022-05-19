@@ -7,27 +7,12 @@ namespace Module_8_1
     {
         static void Main(string[] args)
         {
-            // получим системные диски
-            DriveInfo[] drives = DriveInfo.GetDrives();
-
-            // Пробежимся по дискам и выведем их свойства
-            foreach (DriveInfo drive in drives)
-            {
-                Console.WriteLine($"Название: {drive.Name}");
-                Console.WriteLine($"Тип: {drive.DriveType}");
-                if (drive.IsReady)
-                {
-                    Console.WriteLine($"Объем: {drive.TotalSize}");
-                    Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
-                    Console.WriteLine($"Метка: {drive.VolumeLabel}");
-                }
-            }
-            GetCatalogs();
-
+            GetCatalogs(); //   Вызов метода получения директорий
         }
+
         static void GetCatalogs()
         {
-            string dirName = @"C\"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
+            string dirName = @"C:\Users\Stepan\Desktop\Дела"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
             if (Directory.Exists(dirName)) // Проверим, что директория существует
             {
                 Console.WriteLine("Папки:");
@@ -44,4 +29,6 @@ namespace Module_8_1
                     Console.WriteLine(s);
             }
         }
+
+    }
 }
